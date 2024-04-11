@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { Routes, Route, useLocation, useParams } from "react-router-dom";
 import { getUser } from "../../utilities/users-service";
+import { index } from "../../utilities/items-api"
 
 import "./App.css";
 import AuthPage from "../AuthPage/AuthPage";
@@ -29,7 +30,21 @@ export default function App() {
     { name: "Health and Wellness", path: "categories/healthwellness" },
   ]);
 
-  let { categoryName } = useParams();
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+      async function getProducts() {
+          try {
+              const products = await index();
+              setProducts(products);
+          } catch (error) {
+              console.log("Error fetching products:", error);
+          }
+      }
+      getProducts();
+  }, []);
+
+
+  // let { categoryName } = useParams();
 
   const location = useLocation();
   const isRootPath = location.pathname === "/";
@@ -40,11 +55,10 @@ export default function App() {
         <main className="App">
           <NavBar user={user} setUser={setUser} />
           <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage products={products}/>} />
               <Route path="/categories" element={<CategoriesPage />} />
-              <Route path="/:categoryName" key={categories.name} setCategories={setCategories}   
-              element={<CategoryPage category={categories.name} key={categories.name} name={categoryName} />} />
-              <Route path="/:categoryName/:itemId" element={<ItemDetailsPage />} />
+              <Route path="/:categoryName" element={<CategoryPage products={products}/>} />
+              <Route path="/:categoryName/:itemId" element={<ItemDetailsPage products={products}/>} />
           </Routes>
           {user ? (
 

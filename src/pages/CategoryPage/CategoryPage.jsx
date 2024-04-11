@@ -4,19 +4,19 @@ import { index } from "../../utilities/items-api"
 import { useState, useEffect } from "react";
 import ItemFilter from "../../components/ItemFilter/ItemFilter";
 
-export default function CategoryPage() {
-    const [products, setProducts] = useState([]);
-    useEffect(() => {
-        async function getProducts() {
-            try {
-                const products = await index();
-                setProducts(products);
-            } catch (error) {
-                console.log("Error fetching products:", error);
-            }
-        }
-        getProducts();
-    }, []);
+export default function CategoryPage({products}) {
+    // const [products, setProducts] = useState([]);
+    // useEffect(() => {
+    //     async function getProducts() {
+    //         try {
+    //             const products = await index();
+    //             setProducts(products);
+    //         } catch (error) {
+    //             console.log("Error fetching products:", error);
+    //         }
+    //     }
+    //     getProducts();
+    // }, []);
     
     let { categoryName } = useParams();
 

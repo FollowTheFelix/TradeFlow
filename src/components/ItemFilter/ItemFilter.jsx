@@ -1,10 +1,12 @@
 import React from "react";
 
 function ItemFilter() {
+  // function onClick(){}
   return (
   <>
   <div class="item-filter">
-    <form action="">
+    {/* <form onClick={}> */}
+    <form>
       <div class="delivery-filter">
       <label htmlFor="">Delivery</label>
       <input type="radio" name="delivery" />One Day <br />
