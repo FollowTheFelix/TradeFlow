@@ -1,23 +1,8 @@
 import { useParams } from "react-router-dom";
 import ItemCard from "../../components/ItemCard/ItemCard"
-import { index } from "../../utilities/items-api"
-import { useState, useEffect } from "react";
 import ItemFilter from "../../components/ItemFilter/ItemFilter";
 
-export default function CategoryPage({products}) {
-    // const [products, setProducts] = useState([]);
-    // useEffect(() => {
-    //     async function getProducts() {
-    //         try {
-    //             const products = await index();
-    //             setProducts(products);
-    //         } catch (error) {
-    //             console.log("Error fetching products:", error);
-    //         }
-    //     }
-    //     getProducts();
-    // }, []);
-    
+export default function CategoryPage({products}) {    
     let { categoryName } = useParams();
 
     const productListItems = products
@@ -38,8 +23,6 @@ export default function CategoryPage({products}) {
         />
       ));
 
-
-
     return (
         <>
         <h1>{categoryName}</h1>
@@ -50,7 +33,7 @@ export default function CategoryPage({products}) {
         <div>no products</div>
         )
     }
-        <ItemFilter/>
+        <ItemFilter products={products}/>
         </>
     );
 }

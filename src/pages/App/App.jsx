@@ -56,7 +56,7 @@ export default function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
           <Route path="/" element={<HomePage products={products}/>} />
-              <Route path="/categories" element={<CategoriesPage />} />
+              <Route path="/categories" element={<CategoriesPage products={products}/>} />
               <Route path="/:categoryName" element={<CategoryPage products={products}/>} />
               <Route path="/:categoryName/:itemId" element={<ItemDetailsPage products={products}/>} />
           </Routes>
