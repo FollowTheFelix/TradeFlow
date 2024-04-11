@@ -6,7 +6,7 @@ export default function CategoryPage({products}) {
     let { categoryName } = useParams();
 
     const productListItems = products
-      .filter(product => product.category === categoryName)
+      .filter(products => products.category === categoryName)
       .map((p, idx) => (
         <ItemCard 
           title={p.title} 

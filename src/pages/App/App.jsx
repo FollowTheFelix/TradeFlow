@@ -19,16 +19,16 @@ import ProfilePage from "../ProfilePage/ProfilePage";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
-  const [categories, setCategories] = useState([
-    { name: "Consumer Goods", path: "categories/consumergoods" },
-    {
-      name: "Technology and Electronics",
-      path: "categories/technologyelectronics",
-    },
-    { name: "Fashion and Apparel", path: "categories/fashionapparel" },
-    { name: "Home and Garden", path: "categories/homegarden" },
-    { name: "Health and Wellness", path: "categories/healthwellness" },
-  ]);
+  // const [categories, setCategories] = useState([
+  //   { name: "Consumer Goods", path: "categories/consumergoods" },
+  //   {
+  //     name: "Technology and Electronics",
+  //     path: "categories/technologyelectronics",
+  //   },
+  //   { name: "Fashion and Apparel", path: "categories/fashionapparel" },
+  //   { name: "Home and Garden", path: "categories/homegarden" },
+  //   { name: "Health and Wellness", path: "categories/healthwellness" },
+  // ]);
 
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -65,9 +65,9 @@ export default function App() {
             <>
             <Routes>
               <Route path="/create" element={<CreateItemPage />} />
-              <Route path="/cart" element={<NewOrderPage />} />
-              <Route path="/orders" element={<OrderHistoryPage />} />
-             <Route path="/profile" element={<ProfilePage user={user} />}></Route>
+              <Route path="/cart" element={<NewOrderPage  products={products}/>} />
+              <Route path="/orders" element={<OrderHistoryPage  products={products}/>} />
+             <Route path="/profile" element={<ProfilePage user={user}  products={products}/>}></Route>
 
             </Routes>
             </>
