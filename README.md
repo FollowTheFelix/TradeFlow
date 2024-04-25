@@ -29,7 +29,7 @@
 
 ## Getting Started
 
-[Launch TradeFlow!](https://tradeflow-1b93f1bb83d0.herokuapp.com/cat/Technology%20and%20Electronics)
+[Launch TradeFlow!](https://tradeflow-1b93f1bb83d0.herokuapp.com/)
 <br>
 <br>
 [View Project Planning](https://trello.com/b/g3jNTNqx/closeout-clothes-out)
